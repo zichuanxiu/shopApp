@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="jdbc.properties" />
+	<typeAliases>
+      <package name="org.deepthought.bean" />
+  </typeAliases>
+  <environments default="shopApp">
+    <environment id="shopApp">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+ <mappers >
+  <!--   <mapper resource="org/deepthought/mapper/ArticleMapper.xml"/> -->
+    <package name="org.deepthought.mapper"/>
+  </mappers> 
+</configuration>
