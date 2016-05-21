@@ -26,10 +26,10 @@
 				}
 				switch (type){
 					case 1: // 增加一个
-						window.location.href = "updateCar.action?id=" + id + "&buyNum=" + (buyNum+1);
+						window.location.href = "${ctx}/updateCar.action?id=" + id + "&buyNum=" + (buyNum+1);
 						break;
 					case 2: // 减少一个
-						window.location.href = "updateCar.action?id=" + id + "&buyNum=" + (buyNum-1);
+						window.location.href = "${ctx}/updateCar.action?id=" + id + "&buyNum=" + (buyNum-1);
 						break;
 				}
 			};
