@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/jsp/item.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/login.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/register.jsp=UTF-8
 encoding//WebContent/WEB-INF/jsp/showCar.jsp=UTF-8
-encoding//WebContent/WEB-INF/jsp/showCar_empty.jsp=UTF-8
 encoding//src/org/deepthought/service/util/ServiceProxy.java=GBK
 encoding//src/org/deepthought/util/Connection_Factory.java=UTF-8

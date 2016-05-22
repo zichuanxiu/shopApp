@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -26,10 +27,10 @@
 				}
 				switch (type){
 					case 1: // 增加一个
-						window.location.href = "${ctx}/updateCar.action?id=" + id + "&buyNum=" + (buyNum+1);
+						window.location = "${ctx}/updateCar.action?id=" + id + "&buyNum=" + (buyNum+1);
 						break;
 					case 2: // 减少一个
-						window.location.href = "${ctx}/updateCar.action?id=" + id + "&buyNum=" + (buyNum-1);
+						window.location = "${ctx}/updateCar.action?id=" + id + "&buyNum=" + (buyNum-1);
 						break;
 				}
 			};
@@ -47,7 +48,7 @@
 <body>
 	<!-- header部分 -->
 	<div id="shortcut">
-		<script type="text/javascript">header("");</script>
+		<script type="text/javascript">header("${user.name}");</script>
 	﻿	<div class="nav">
 			<div class="w960 center">
 				<ul>
@@ -95,7 +96,7 @@
 							</li>
 							<li class="row22">0</li>
 							<li class="row33"><span>￥${Article.discountPrice}</span>&nbsp;&nbsp;(${Article.discount*10}折)</li>
-							<li class="row44"><span>￥${Article.discountPrice*Article.buyNum}</span></li>
+							<li class="row44"><span>￥<fmt:formatNumber value="${Article.discountPrice*Article.buyNum}" pattern="##.##" minFractionDigits="2" /></span></li>
 							<li class="row55">
 								<input type="text" name="number" value="${Article.buyNum}" onblur="blurFn(this, 1, 1);">
 								<a href="javascript:void(0);" onclick="addFun('${Article.id}','${Article.buyNum}',1);" title="数量加一" class="add">+</a>

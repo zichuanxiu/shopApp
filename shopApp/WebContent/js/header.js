@@ -21,7 +21,7 @@ function header(name){
 		str += "	<li>";
 		str += "		<span style='color:red;'>" + name;
 		str += "		</span>：您好!&nbsp;&nbsp;";
-		str += "		[<a href=\"admin/loginout.action\">退出</a>]";
+		str += "		[<a href=\"loginout.action\">退出</a>]";
 		str += "	</li>";
 	}
 	str += "    <li>&nbsp;[<a href=\"showCar.action\">我的购物车</a>]</li>";

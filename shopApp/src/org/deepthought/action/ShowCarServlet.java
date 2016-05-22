@@ -49,7 +49,7 @@ public class ShowCarServlet extends HttpServlet {
 				//购物车商品信息
 				List<Map<Integer, Integer>> shopCarInfo = SqlService.selectShopCar(user_id);
 			
-				System.out.println(shopCarInfo.toString());
+				System.out.println("shopCarInfo里面的信息"+shopCarInfo.toString());
 				
 				//用于保存购物车中商品总数量
 			    Integer totalNum = 0;
@@ -121,12 +121,13 @@ public class ShowCarServlet extends HttpServlet {
 					
 
 					
-					request.getRequestDispatcher("/WEB-INF/jsp/showCar.jsp").forward(request, response);
+					 request.getRequestDispatcher("/WEB-INF/jsp/showCar.jsp").forward(request, response);
 				
-			    }else {
-					request.getRequestDispatcher("/WEB-INF/jsp/showCar_empty.jsp").forward(request, response);
-				}
-			
+			    }
+			    
+			    
+			    
+			   
 			}
 
 

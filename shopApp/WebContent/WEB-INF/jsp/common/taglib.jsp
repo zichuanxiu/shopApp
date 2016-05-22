@@ -11,6 +11,6 @@
 
 <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
-	<script type="text/javascript" src="js/pager.js"></script>
+	<!-- <script type="text/javascript" src="js/pager.js"></script> -->
 	<!-- header.js输出头部信息 -->
 <script type="text/javascript" src="js/header.js"></script>	

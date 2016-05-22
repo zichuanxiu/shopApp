@@ -5,6 +5,7 @@ import java.util.List;
 import org.deepthought.annotation.OutoMapper;
 import org.deepthought.bean.Article;
 import org.deepthought.bean.ArticleType;
+import org.deepthought.bean.User;
 import org.deepthought.mapper.ArticleMapper;
 
 public class ArticleServiceImpl implements ArticleService {
@@ -33,6 +34,12 @@ public class ArticleServiceImpl implements ArticleService {
 		Article ItemArticle = articleMapper.getItemArticleById(id);
 		
 		return ItemArticle;
+	}
+	@Override
+	public User getUserByNameAndPass(String loginName, String password) {
+
+		User user = articleMapper.getUserByNameAndPass(loginName,password);
+		return user;
 	}
 	
 	

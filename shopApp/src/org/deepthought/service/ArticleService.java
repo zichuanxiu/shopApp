@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.deepthought.bean.Article;
 import org.deepthought.bean.ArticleType;
+import org.deepthought.bean.User;
 
 public interface ArticleService {
 
@@ -13,6 +14,8 @@ public interface ArticleService {
 	List<ArticleType> getSecondArticleType(String str);
 
 	Article getItemArticleById(String id);
+
+	User getUserByNameAndPass(String loginName, String password);
 
 
 }

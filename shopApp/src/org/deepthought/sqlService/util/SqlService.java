@@ -3,14 +3,15 @@ package org.deepthought.sqlService.util;
 import java.util.List;
 import java.util.Map;
 
+import org.deepthought.bean.User;
 import org.deepthought.service.ShopCarService;
 import org.deepthought.service.ShopCarServiceImpl;
 import org.deepthought.service.util.ServiceProxy;
 import org.junit.Test;
 
 public class SqlService {
-//	 ServiceProxy serviceProxy=null;
-//	 ShopCarService shopCarService=null;
+//	 static ServiceProxy serviceProxy=null;
+//	 static ShopCarService shopCarService=null;
 //	 static{
 //	 ServiceProxy serviceProxy = new ServiceProxy();
 //	
@@ -62,11 +63,8 @@ public class SqlService {
 				.bind(new ShopCarServiceImpl());
 		shopCarService.deleteShopCar(user_id, goods_id);
 	}
-//	@Test
-//	public void main() {
-//		Map<Integer, Integer> selectSqlMap= SqlService.selectShopCar("1");
-//		selectSqlMap.toString();
-//	}
-//	
+
+	
+
 
 }

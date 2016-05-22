@@ -5,6 +5,7 @@ import java.util.List;
 import org.deepthought.annotation.OutoMapper;
 import org.deepthought.bean.Article;
 import org.deepthought.mapper.ArticleContextMapper;
+import org.deepthought.tag.Page;
 
 public class ArticleContextServiceImpl implements ArticleContextService {
 	
@@ -16,6 +17,24 @@ public class ArticleContextServiceImpl implements ArticleContextService {
 
 		List<Article> allArticleContextByCode =articleContextMapper.getAllArticleContextByCode(code);
 		return allArticleContextByCode;
+	}
+
+	@Override
+	public int getTotalNumber(String typeCode, String keyWord) {
+		
+		int totalNumber = articleContextMapper.getTotalNumber(typeCode,keyWord);
+		
+		return totalNumber;
+	}
+
+	@Override
+	public List<Article> getArticleContext(String typeCode, String keyWord,
+			Page page) {
+	
+		List<Article> articleContext= articleContextMapper.getArticleContext(typeCode,keyWord,
+			page);
+		
+		return articleContext;
 	}
 	
 	

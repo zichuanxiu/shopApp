@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp" %>
+<%@ taglib uri="http://org.deepthought.shopApp" prefix="dp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -62,7 +63,7 @@
 <body>
 	<!-- header部分 -->
 	<div id="shortcut">
-		<script type="text/javascript">header("");</script>
+		<script type="text/javascript">header("${user.name}");</script>
 	﻿	<div class="nav">
 			<div class="w960 center">
 				<ul>
@@ -93,7 +94,7 @@
 		<!-- 右边对应物品列表 -->
 		<div style="float:left;width:750px;text-align:center;">
 			<div>
-				<form action="${ctx}/search.action" method="get" name="search id="form1" >
+				<form action="${ctx}/index.action" method="get" name="search id="form1" >
 			  		物品类型：
 			  		<select name="typeCode1" id="typeCode1">
 				  		<option value="${firstCode}">${firstName}</option>
@@ -128,7 +129,8 @@
 						 
 					</ul>
 					<!-- 分页标签 -->
-					<div class="pagebottom" id="pager" style="clear:both;"></div>
+					<dp:page url="index.action" page="${page}"></dp:page>
+					
 				</div>
 			</div>
 		</div>

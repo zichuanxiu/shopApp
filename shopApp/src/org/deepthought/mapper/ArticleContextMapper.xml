@@ -3,11 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.deepthought.mapper.ArticleContextMapper">
-	<!-- <select id="getAllArticleContextByCode" resultType="Article">
-		 SELECT * FROM ec_article WHERE type_code LIKE #{code}
+	<select id="getArticleContext" resultType="Article">
+      SELECT * FROM ec_article <include refid="commonSql"/>
+      limit #{page.startIndex},#{page.pageSize}
+   </select>
+	
+	 <!-- 获取总记录数 -->
+   <select id="getTotalNumber" resultType="int">
+    SELECT count(*) FROM ec_article <include refid="commonSql"/>
+   </select>
+   
+   <sql id="commonSql">
+         WHERE type_code LIKE #{typeCode}
       <if test="keyWord!=null">
         AND title LIKE #{keyWord}
       </if>
-	</select> -->
+   </sql>
 	
 </mapper>

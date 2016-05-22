@@ -38,6 +38,8 @@ public class Article {
 	private boolean disabled;
 	
 	private Integer buyNum;
+	
+	
 	public Integer getBuyNum() {
 		return buyNum;
 	}

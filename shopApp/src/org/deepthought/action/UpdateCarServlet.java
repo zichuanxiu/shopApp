@@ -29,7 +29,7 @@ public class UpdateCarServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("111111111");
 		String user_id = (String) request.getSession().getAttribute("user_id");
 		
 		String goods_id= request.getParameter("id");

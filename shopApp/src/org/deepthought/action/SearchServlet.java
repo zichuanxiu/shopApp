@@ -35,28 +35,35 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ServiceProxy serviceProxy = new ServiceProxy();
-
-		ArticleSearchService articleSearchService = (ArticleSearchService)serviceProxy.bind(new ArticleSearchServiceImpl());
+//		ServiceProxy serviceProxy = new ServiceProxy();
+//
+//		ArticleSearchService articleSearchService = (ArticleSearchService)serviceProxy.bind(new ArticleSearchServiceImpl());
 		
 		
 		//二级物品类型表单参数接收
 		String typeCode1 = request.getParameter("typeCode1");
 		
-		request.setAttribute("typeCode1", typeCode1);
+		
 		
 		String keyWord = request.getParameter("keyWord");
 		
-		request.setAttribute("keyWord", keyWord);
+		
 		
 //		System.out.println("00000000000000");
 //		System.out.println(typeCode1+"和"+keyWord);
 //		System.out.println("00000000000000");
 
 		
-		List<Article> ArticleContext = articleSearchService.getAllArticleContextBySearch(typeCode1+"%",keyWord==null?null:"%"+keyWord+"%");
+//		List<Article> ArticleContext = articleSearchService.getAllArticleContextBySearch(typeCode1+"%",keyWord==null?null:"%"+keyWord+"%");
 		
-		request.setAttribute("ArticleContext", ArticleContext);
+		
+		
+		
+		
+		request.setAttribute("typeCode1", typeCode1);
+		request.setAttribute("keyWord", keyWord);
+		
+//		request.setAttribute("ArticleContext", ArticleContext);
 		
 		request.getRequestDispatcher("/index.action").forward(request, response);
 	}
