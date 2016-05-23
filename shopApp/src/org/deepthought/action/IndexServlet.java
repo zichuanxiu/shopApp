@@ -86,7 +86,7 @@ public class IndexServlet extends HttpServlet {
 
 		int totalNumber = PageService.getTotalNumber(typeCode1+"%",keyWord==null?null:"%"+keyWord+"%");
 		
-		System.out.println("totalNumber:"+totalNumber);
+//		System.out.println("totalNumber:"+totalNumber);
 		
 		page.setTotalNumber(totalNumber);
 		

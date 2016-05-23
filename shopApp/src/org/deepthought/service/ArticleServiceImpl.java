@@ -41,6 +41,11 @@ public class ArticleServiceImpl implements ArticleService {
 		User user = articleMapper.getUserByNameAndPass(loginName,password);
 		return user;
 	}
+	@Override
+	public User getUserByLoginName(String loginName) {
+		User user = articleMapper.getUserByLoginName(loginName);
+		return user;
+	}
 	
 	
 }

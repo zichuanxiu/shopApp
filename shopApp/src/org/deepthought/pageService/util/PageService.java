@@ -107,5 +107,15 @@ public class PageService {
 		
 		return user;
 	}
+	//通过loginName异步校验用户名
+	public static User getUserByLoginName(String loginName) {
+		ServiceProxy serviceProxy = new ServiceProxy();
+
+		ArticleService articleService = (ArticleService) serviceProxy
+				.bind(new ArticleServiceImpl());
+		
+		User user = articleService.getUserByLoginName(loginName);
+		return user;
+	}
 
 }

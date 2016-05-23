@@ -17,5 +17,7 @@ public interface ArticleService {
 
 	User getUserByNameAndPass(String loginName, String password);
 
+	User getUserByLoginName(String loginName);
+
 
 }

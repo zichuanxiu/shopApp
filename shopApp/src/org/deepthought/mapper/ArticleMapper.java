@@ -24,4 +24,7 @@ public interface ArticleMapper {
 	@Select("SELECT * FROM ec_user WHERE LOGIN_NAME = #{loginName} AND PASSWORD = #{password}")
 	User getUserByNameAndPass(@Param("loginName")String loginName,@Param("password") String password);
 	
+	@Select("SELECT * FROM ec_user WHERE LOGIN_NAME = #{loginName}")
+	User getUserByLoginName(String loginName);
+	
 }

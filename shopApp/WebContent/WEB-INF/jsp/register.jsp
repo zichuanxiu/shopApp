@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,11 +14,12 @@
 	<meta name="Copyright" content="All Rights Reserved."/>
 	<link rel="shortcut icon" type="image/x-icon" href="fkjava.ico"/>
 	<!-- main.css是购物商城主样式 -->
-	<link rel=stylesheet type=text/css href="css/main.css"/>
+	<link rel=stylesheet type=text/css href="${pageContext.request.contextPath}/css/main.css"/>
 	<!-- header.js输出头部信息 -->
-	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/header.js"></script>
 	<!-- regex.js是正则表达式的一系列判断 -->
-	<script type=text/javascript src=js/regex.js></script>
+	<script type=text/javascript src="${pageContext.request.contextPath}/js/regex.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.js"></script>
 	<script type="text/javascript">
 		var changFn = function(){
 			var img = document.getElementById('JD_Verification1');
@@ -69,6 +71,25 @@
 				}else{
 					$('loginName_error').innerHTML="您输入的邮箱地址不合法";
 				}
+				
+				jQuery.ajax({
+					url:"${pageContext.request.contextPath}/register.action",
+					type:"post",
+					data:"loginName="+fieldVaue+"&flag=validUser",
+					dataType:"text",
+					success:function(data){
+						if (data!=null&&data!="") {
+							
+							jQuery("#loginName_message").html("<font color='red'>"+data+"</front>");
+						}else{
+							
+							jQuery("#loginName_message").text('');
+						}
+					},error:function(){
+					 	
+					}
+				})
+				
 			}else if(id == "passWord"){
 				if (fieldVaue == null || fieldVaue == "" || fieldVaue.length == 0) {
 					$("passWord_error").innerHTML = "请输入6-16位字符，可由英文、数字组成";
@@ -128,6 +149,13 @@
 			}
 			document.getElementById("registerform").submit();
 		};
+		//绑定回车事件
+		jQuery(document).keydown(function (e) {
+			if(e.keyCode==13){
+				jQuery("#formSubmit").trigger("click");
+			}
+		})
+		
 	</script>
 </head>
 <body>
@@ -138,37 +166,10 @@
 			<div class="w960 center">
 				<ul>
 					<li><a title="首页" href="index.action">首页</a></li>
-					
-						<li><a title="护肤" href="/fk_ec/index.jspx?typecode=0001">护肤</a></li>
-					
-						<li><a title="彩妆" href="/fk_ec/index.jspx?typecode=0002">彩妆</a></li>
-					
-						<li><a title="香氛" href="/fk_ec/index.jspx?typecode=0003">香氛</a></li>
-					
-						<li><a title="身体护理" href="/fk_ec/index.jspx?typecode=0004">身体护理</a></li>
-					
-						<li><a title="礼盒套装" href="/fk_ec/index.jspx?typecode=0005">礼盒套装</a></li>
-					
-						<li><a title="母婴专区" href="/fk_ec/index.jspx?typecode=0006">母婴专区</a></li>
-					
-						<li><a title="男士专区" href="/fk_ec/index.jspx?typecode=0007">男士专区</a></li>
-					
-						<li><a title="粉底" href="/fk_ec/index.jspx?typecode=0008">粉底</a></li>
-					
-						<li><a title="粉饼" href="/fk_ec/index.jspx?typecode=0009">粉饼</a></li>
-					
-						<li><a title="睫毛膏" href="/fk_ec/index.jspx?typecode=0010">睫毛膏</a></li>
-					
-						<li><a title="唇彩" href="/fk_ec/index.jspx?typecode=0011">唇彩</a></li>
-					
-						<li><a title="腮红" href="/fk_ec/index.jspx?typecode=0012">腮红</a></li>
-					
-						<li><a title="食品保健" href="/fk_ec/index.jspx?typecode=0013">食品保健</a></li>
-					
-						<li><a title="瘦身类" href="/fk_ec/index.jspx?typecode=0014">瘦身类</a></li>
-					
-						<li><a title="美容类" href="/fk_ec/index.jspx?typecode=0015">美容类</a></li>
-					
+					<c:forEach items="${firstArticleType}" var="ArticleType">
+						<li><a title="${ArticleType.name}" href="${ctx}/index.jspx?typecode=${ArticleType.code}">${ArticleType.name}</a></li>
+					</c:forEach>
+						
 					
 				</ul>
 			</div>
@@ -187,10 +188,10 @@
 			</ul>
 			<!-- form -->
 			<form id="registerform" method="post" name="registerform" action="register.action">
-			    <input type="hidden" name="method" value="add"/>
+			    <input type="hidden" name="flag" value="add"/>
 			    
 			    <div class="form">
-			    	<center style="color:red;"></center>
+			    	<center style="color:red;" id="message"><font color='red'>${message}</font></center>
 			    	<!-- loginName -->
 			        <div class="item">
 			            <span class="label"><b class="ftx04">*</b>登录名：</span>
@@ -296,7 +297,7 @@
 			        <div class="item">
 			            <span class="label">&nbsp;</span>
 						<!-- a href 调用js函数需要加javascript:function();  -->
-			            <a href="javascript:void(0);" onclick="onRegister();"><img src="images/register.jpg"></a>
+			            <a href="javascript:void(0);" onclick="onRegister();"><img id ="formSubmit"  src="images/register.jpg"></a>
 			        </div>
 			    </div>
 			</form>
