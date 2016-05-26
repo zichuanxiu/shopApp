@@ -12,5 +12,7 @@ public interface ShopCarService {
 	void updateShopCar(String user_id, String goods_id,String goods_amount);
 
 	void deleteShopCar(String user_id, String goods_id);
+
+	void deleteAllByUserid(int user_id);
 	
 }

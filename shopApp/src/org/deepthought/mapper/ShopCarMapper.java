@@ -27,5 +27,7 @@ public interface ShopCarMapper {
 	@Delete("DELETE FROM ec_shopcar WHERE user_id=#{user_id} AND goods_id=#{goods_id}")
 	void deleteShopCar(@Param("user_id") String user_id,
 			@Param("goods_id") String goods_id);
+	@Delete("DELETE FROM ec_shopcar WHERE user_id =#{user_id}")
+	void deleteAllByUserid(int user_id);
 
 }

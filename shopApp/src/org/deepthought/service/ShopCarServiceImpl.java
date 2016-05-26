@@ -42,4 +42,9 @@ public class ShopCarServiceImpl implements ShopCarService {
 		shopCarMapper.deleteShopCar(user_id, goods_id);
 		
 	}
+
+	@Override
+	public void deleteAllByUserid(int user_id) {
+		shopCarMapper.deleteAllByUserid(user_id);
+	}
 }

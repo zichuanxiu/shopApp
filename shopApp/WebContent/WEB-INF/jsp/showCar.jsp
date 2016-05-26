@@ -122,7 +122,7 @@
 		            </p>
 		            <p>
 		            	<a href="index.action" name="goon" class="goon"><img alt="" src="images/shop.jpg"/></a>
-		                <a href="${ctx}/order.action?step=${totalPrice}" class="clearing" title="结算"><img alt="" src="images/balance.jpg"></a>
+		                <a href="${ctx}/order.action?totalPrice=${totalPrice}" class="clearing" title="结算"><img alt="" src="images/balance.jpg"></a>
 		            </p>
 		        </div>
 		        

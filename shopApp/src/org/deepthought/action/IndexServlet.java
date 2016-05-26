@@ -109,7 +109,7 @@ public class IndexServlet extends HttpServlet {
 //		request.setAttribute("name", user.getName());
 		
 		
-		
+		request.setAttribute("keyWord", keyWord);
 		request.setAttribute("ArticleContext", ArticleContext);
 		request.setAttribute("firstCode", firstCode);
 		request.setAttribute("firstName", firstName);

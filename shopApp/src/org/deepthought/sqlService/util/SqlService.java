@@ -63,6 +63,15 @@ public class SqlService {
 				.bind(new ShopCarServiceImpl());
 		shopCarService.deleteShopCar(user_id, goods_id);
 	}
+	
+	//根据user_id删除该用户在购物车里面的所有信息
+	public static void deleteAllByUserid(int user_id) {
+		ServiceProxy serviceProxy = new ServiceProxy();
+
+		ShopCarService shopCarService = (ShopCarService) serviceProxy
+				.bind(new ShopCarServiceImpl());
+		shopCarService.deleteAllByUserid(user_id);
+	}
 
 	
 

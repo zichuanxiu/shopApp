@@ -54,10 +54,11 @@ public class LoginServlet extends HttpServlet {
 			}else if (user.getDisabled()=="0") {
 				request.setAttribute("message", "您尚未激活，请登录邮箱["+user.getEmail()+"]激活后再登录！");
 				url="/WEB-INF/jsp/login.jsp";
-			}else if (user.getRole()=="2") {
+			}else if ("2".equals(user.getRole())) {
 				//这里是管理员账户
+//				System.out.println("这里是管理员账户");
 				request.getSession().setAttribute("user", user);
-				
+				url="/adminIndex.action";
 			}else {
 				request.getSession().setAttribute("user", user);
 				Boolean buyCarFlag =(Boolean)request.getSession().getAttribute("buyCarFlag");
@@ -70,6 +71,7 @@ public class LoginServlet extends HttpServlet {
 				}
 			
 			}
+//			System.out.println("url"+url);
 			request.getRequestDispatcher(url).forward(request, response);
 		}else {
 			request.setAttribute("firstArticleType", firstArticleType);
